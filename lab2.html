@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+ <meta charset="utf-8">
+ <title>Canvas</title>
+ <script type="text/javascript">
+ function zad1(c){
+
+	c.fillStyle = "yellow";
+	c.fillRect(0,0, 60,60);
+		
+	c.fillStyle = "red";
+	c.fillRect(240,0, 60,60);
+	
+	c.fillStyle = "yellow";
+	c.lineWidth = 10;
+	c.beginPath();
+	c.arc(35, 265, 30, Math.PI *2, 0, false);
+	c.closePath();
+	c.strokeStyle = "yellow";
+	c.stroke();
+	
+	c.fillStyle = "green";
+	c.font = "30px Arial";
+	c.fillText("elo grafika", 80, 165);
+	
+	c.fillStyle = "blue";
+	c.beginPath();
+	c.moveTo(240, 240);
+	c.lineTo(270, 210);
+	c.lineTo(300, 240);
+	c.lineTo(300, 300);
+	c.lineTo(240, 300);
+	c.fill();
+ }
+
+ function zad2b(c){
+	var cols = ["red", "green", "blue", "pink", "yellow", "purple"];
+	var tab = [1,4,3,2];
+	var sum = 0;
+	for(var i =0;i<tab.length;i++)sum+=tab[i];
+	var buff = Math.PI+Math.PI/2.0;
+	c.font = "20px Arial";
+	for(var i=0;i<tab.length;i++){
+		c.fillStyle = cols[i];
+		c.beginPath();
+		c.moveTo(150,150);
+		c.arc(150,150,100,buff, buff+(tab[i]/parseFloat(sum))*Math.PI*2, false);//%*360ofPI ;)
+		c.closePath();
+		c.fill();
+		c.stroke();
+		
+		c.fillStyle = "black";
+		var middle = buff+(tab[i]/parseFloat(sum))*Math.PI;
+		c.fillText(tab[i], 145+Math.cos(middle)*70, 150+Math.sin(middle)*70);
+		
+		buff+= (tab[i]/parseFloat(sum))*Math.PI*2.0;
+	}
+ }
+ function zad3(c){
+ var cols = ["red", "green", "blue", "yellow", "pink", "purple"];
+ var tab = [1,4,3,2,5];
+ 
+ var max = 0;
+ for(var i=0;i<tab.length;i++)if(tab[i]>max)max=tab[i];
+ var gap = (250/tab.length)/2;
+ c.font = "20px Arial";
+ for(var i=0;i<tab.length;i++){
+	c.fillStyle = cols[i];
+	c.fillRect(i*gap, 250-(tab[i]/parseFloat(max))*250, gap/2, (tab[i]/parseFloat(max))*250);
+	c.fillStyle = "black";
+	c.fillText(tab[i], i*gap, 270);
+ 
+ }
+ }
+ 
+ function zad2c(c){
+ var cols = ["red", "green", "blue", "yellow", "purple"];
+ var tab = [1,4,3,2,5];
+ 
+ var sum =0;
+ for(var i=0;i<tab.length;i++)sum+=tab[i];
+ 
+ var buff = Math.PI+Math.PI/2;
+ c.font = "20px Arial";
+ for(var i=0;i<tab.length;i++){
+ c.fillStyle = cols[i];
+ 
+ c.beginPath();
+ c.moveTo(150,150);
+ c.arc(150,150,100, buff, buff+ (tab[i]/parseFloat(sum))*Math.PI*2, false);
+ c.closePath();
+ c.fill();
+ c.stroke();
+ 
+ var mid = buff+(tab[i]/parseFloat(sum))*Math.PI;
+ c.fillStyle = "black";
+ c.fillText(tab[i],145+Math.cos(mid)*70, 150+Math.sin(mid)*70);
+ 
+ buff+= (tab[i]/parseFloat(sum))*Math.PI*2;
+ }
+}
+ 
+function zad3b(c){
+
+var col = ["red","green","blue","yellow","purple"];
+var tab = [1,8,2,3,1];
+
+var max =0;
+for(var i=0;i<tab.length;i++)if(tab[i]>max)max=tab[i];
+
+var gap = (250/tab.length)/2;
+c.font = "16px Arial";
+
+var off_x = 50;
+for(var i=0;i<tab.length;i++){
+
+c.fillStyle = col[i];
+c.fillRect(off_x+i*gap, 250-(tab[i]/parseFloat(max))*250, gap/2, (tab[i]/parseFloat(max))*250);
+
+c.fillStyle = "black";
+c.fillText(tab[i], off_x+i*gap, 270);
+ 
+}
+} 
+ 
+	function draw() {
+		var canvas = document.getElementById('image');
+		var c = canvas.getContext('2d');
+		//zad1(c);
+		//zad2c(c);
+		//zad2b(c);
+		//zad3(c);
+		zad3b(c)
+	}
+ </script>
+</head>
+<body onload="draw();">
+ <canvas id="image" width="300" height="300">
+</canvas>
+</body>
+</html>
