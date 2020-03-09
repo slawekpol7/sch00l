@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+ <meta charset="utf-8">
+ <title>Canvas</title>
+ <script type="text/javascript">
+ function draw(form) {
+
+	 var canvas = document.getElementById('image');
+	 var c = canvas.getContext('2d');
+	 var zad =  parseInt(form.zad.value);
+	 c.clearRect(0, 0, canvas.width, canvas.height);
+	 
+	 if(1 == zad){//zad1
+		c.fillStyle ="white";
+		for(var i=0;i<7;i++){ c.strokeRect(50+i*50, 50+i*50, 100, 100); c.fillRect(51+i*50, 51+i*50, 98, 98); }
+		for(var i=0;i<7;i++){
+		c.beginPath();
+			c.moveTo(250+i*50, 50+i*50);
+			c.arc(250+i*50, 50+i*50, 50, 2*Math.PI, false); c.stroke();
+			c.arc(250+i*50, 50+i*50, 50, 2*Math.PI, false); c.fill();
+		c.closePath();
+		}
+	}
+	//---------------------------------------------------------------------------------------------------------
+	if(2==zad){
+		var tab = [parseFloat(form.x1.value), parseFloat(form.x2.value), parseFloat(form.x3.value), parseFloat(form.x4.value),parseFloat(form.x5.value)];
+		var cols = ['RGB(255,0,0)','RGB(0,255,0)','RGB(0,0,255)','RGB(255,0,255)','RGB(255,255,0)'];
+		
+		var sum = 0;
+		for(var i=0;i<tab.length;i++)sum+=tab[i];
+		
+		var buff = Math.PI+Math.PI/2;
+		
+		c.font = "30px Arial";
+		for(var i=0;i<tab.length;i++){
+		c.fillStyle = cols[i];
+			c.beginPath();
+			c.moveTo(300,300);
+			c.arc(300,300,150, buff, buff+(tab[i]/parseFloat(sum))*Math.PI*2, false);
+			c.stroke();
+			c.fill();
+			
+			c.fillStyle="black";
+			var mid = buff +(tab[i]/parseFloat(sum))*Math.PI;
+			c.fillText(tab[i], 290+Math.cos(mid)*190, 300+Math.sin(mid)*190);
+			
+			
+			buff+=(tab[i]/parseFloat(sum))*Math.PI*2;
+		}
+	}
+	
+ }
+ </script>
+</head>
+<body>
+<form>
+zad= <input type="text" name="zad" value="5"><BR>
+x1= <input type="text" name="x1" value="5"><BR>
+x2= <input type="text" name="x2" value="2"><BR>
+x3= <input type="text" name="x3" value="7"><BR>
+x4= <input type="text" name="x4" value="3"><BR>
+x5= <input type="text" name="x5" value="1"><BR>
+
+<input type="button" name="a" value="Rysuj"
+onclick="draw(this.form);"> <BR>
+ <canvas id="image" width="600" height="600">
+</canvas>
+</form>
+</body>
+</html>
+
+
+
+
