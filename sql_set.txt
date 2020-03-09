@@ -1,0 +1,31 @@
+
+
+use Chinook;
+
+
+-- 1 --
+select Name from mediatype;
+select * from Customer where Customerid <= 12;
+select * from Genre where Name like "_a%";
+select Name from Track where Bytes between 1000000 and 2000000;
+select * from Employee order by BirthDate;
+
+-- 2 --
+select * from Employee where BirthDate > "1964-00-00" and Address like "%Lethbridge%";
+select * from Track t, Genre g where t.Milliseconds < 60000 and g.Name = "Rock"
+and t.GenreId = g.GenreId;
+select * from Genre where Name like "R%" or Name like "S%";
+select * from Employee where BirthDate between "1973-00-00" and "1974-00-00" or BirthDate < "1960-00-00";
+select * from Employee where BirthDate < "1970-00-00" and LastName like "%s";
+
+-- 3 --
+use bd03;
+
+alter table prac add email varchar(30);
+
+update prac set
+email = lower(concat(substring(concat(LEFT(imie, 1), nazwisko), 1, LENGTH(concat(LEFT(imie, 1), nazwisko))-3),"@wynajem.pl")) ;
+
+
+select id_prac, imie, nazwisko, email from prac;
+ 
