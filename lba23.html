@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+ <meta charset="utf-8">
+ <title>Canvas</title>
+ <script type="text/javascript">
+ function draw(form) {
+		a(form);
+		b(form);
+		 c(form);
+		d(form);
+	}	
+function a(form){
+		var tab1 = [parseFloat(form.p1_1.value), parseFloat(form.p1_2.value), parseFloat(form.p1_3.value), parseFloat(form.p1_4.value)];
+		var tab2 = [parseFloat(form.z1_1.value), parseFloat(form.z1_2.value), parseFloat(form.z1_3.value), parseFloat(form.z1_4.value)];
+
+	 var canvas = document.getElementById('image0');
+	 var c = canvas.getContext('2d');
+	 c.clearRect(0, 0, canvas.width, canvas.height);
+	 		
+		var max = tab1[0] ;
+		console.log("the max "+max );
+		for(var i=0;i<4;i++)if(tab1[i]>max)max=tab1[i];
+		
+		var h_step = canvas.height*0.8 / max;
+		var w_step = (canvas.width / 4);		
+		c.font = "20px Arial";
+		c.lineWidth = 5;
+		c.fillStyle = "black";
+		c.strokeStyle = "black";		
+		c.fillText(form.f1n.value, 2,32);		
+		var o_x = 50;
+		var o_y = 50;
+		for(var i=0;i<=max;i++){
+			c.fillRect(0, canvas.height-i*h_step-1-o_y, canvas.width, 1);
+		}		
+		for(var i=0;i<4;i++){
+			c.fillStyle="RGB(0,0,255)";
+			c.fillRect(i*w_step, canvas.height-1 -tab1[i]*h_step -o_y, w_step/4, tab1[i]*h_step );
+			c.fillText(tab1[i] , i*w_step+5, canvas.height-20);
+			
+			c.fillStyle="RGB(255,0,0)";
+			c.fillRect(i*w_step+w_step/4, canvas.height-1 -tab2[i]*h_step-o_y, w_step/4, tab2[i]*h_step  );
+			c.fillText(tab2[i] , i*w_step+w_step/4+5, canvas.height-20 );
+		}	 	
+}
+function b(form){
+		var tab1 = [parseFloat(form.p2_1.value), parseFloat(form.p2_2.value), parseFloat(form.p2_3.value), parseFloat(form.p2_4.value)];
+		var tab2 = [parseFloat(form.z2_1.value), parseFloat(form.z2_2.value), parseFloat(form.z2_3.value), parseFloat(form.z2_4.value)];
+
+	 var canvas = document.getElementById('image1');
+	 var c = canvas.getContext('2d');
+	 c.clearRect(0, 0, canvas.width, canvas.height);
+	 		
+		var max = tab1[0] ;
+		console.log("the max "+max );
+		for(var i=0;i<4;i++)if(tab1[i]>max)max=tab1[i];	
+		var h_step = canvas.height*0.8 / max;
+		var w_step = (canvas.width / 4);		
+		c.font = "20px Arial";
+		c.lineWidth = 5;
+		c.fillStyle = "black";
+		c.strokeStyle = "black";		
+		c.fillText(form.f2n.value, 2,32);		
+		var o_x = 50;
+		var o_y = 50;
+		for(var i=0;i<=max;i++){
+			c.fillRect(0, canvas.height-i*h_step-1-o_y, canvas.width, 1);
+		}		
+		for(var i=0;i<4;i++){
+			c.fillStyle="RGB(0,0,255)";
+			c.fillRect(i*w_step, canvas.height-1 -tab1[i]*h_step -o_y, w_step/4, tab1[i]*h_step );
+			c.fillText(tab1[i] , i*w_step+5, canvas.height-20);
+			
+			c.fillStyle="RGB(255,0,0)";
+			c.fillRect(i*w_step+w_step/4, canvas.height-1 -tab2[i]*h_step-o_y, w_step/4, tab2[i]*h_step  );
+			c.fillText(tab2[i] , i*w_step+w_step/4+5, canvas.height-20 );
+		}			
+}
+function c(form){
+		var tab1 = [parseFloat(form.p3_1.value), parseFloat(form.p3_2.value), parseFloat(form.p3_3.value), parseFloat(form.p3_4.value)];
+		var tab2 = [parseFloat(form.z3_1.value), parseFloat(form.z3_2.value), parseFloat(form.z3_3.value), parseFloat(form.z3_4.value)];
+
+	 var canvas = document.getElementById('image2');
+	 var c = canvas.getContext('2d');
+	 c.clearRect(0, 0, canvas.width, canvas.height);
+	 		
+		var max = tab1[0] ;
+		console.log("the max "+max );
+		for(var i=0;i<4;i++)if(tab1[i]>max)max=tab1[i];	
+		var h_step = canvas.height*0.8 / max;
+		var w_step = (canvas.width / 4);		
+		c.font = "20px Arial";
+		c.lineWidth = 5;
+		c.fillStyle = "black";
+		c.strokeStyle = "black";		
+		c.fillText(form.f3n.value, 2,32);		
+		var o_x = 50;
+		var o_y = 50;
+		for(var i=0;i<=max;i++){
+			c.fillRect(0, canvas.height-i*h_step-1-o_y, canvas.width, 1);
+		}		
+		for(var i=0;i<4;i++){
+			c.fillStyle="RGB(0,0,255)";
+			c.fillRect(i*w_step, canvas.height-1 -tab1[i]*h_step -o_y, w_step/4, tab1[i]*h_step );
+			c.fillText(tab1[i] , i*w_step+5, canvas.height-20);
+			
+			c.fillStyle="RGB(255,0,0)";
+			c.fillRect(i*w_step+w_step/4, canvas.height-1 -tab2[i]*h_step-o_y, w_step/4, tab2[i]*h_step  );
+			c.fillText(tab2[i] , i*w_step+w_step/4+5, canvas.height-20 );
+		}			
+}
+function d(form){
+		var tab1 = [parseFloat(form.p4_1.value), parseFloat(form.p4_2.value), parseFloat(form.p4_3.value), parseFloat(form.p4_4.value)];
+		var tab2 = [parseFloat(form.z4_1.value), parseFloat(form.z4_2.value), parseFloat(form.z4_3.value), parseFloat(form.z4_4.value)];
+
+	 var canvas = document.getElementById('image3');
+	 var c = canvas.getContext('2d');
+	 c.clearRect(0, 0, canvas.width, canvas.height);
+	 		
+		var max = tab1[0] ;
+		console.log("the max "+max );
+		for(var i=0;i<4;i++)if(tab1[i]>max)max=tab1[i];	
+		var h_step = canvas.height*0.8 / max;
+		var w_step = (canvas.width / 4);		
+		c.font = "20px Arial";
+		c.lineWidth = 5;
+		c.fillStyle = "black";
+		c.strokeStyle = "black";		
+		c.fillText(form.f4n.value, 2,32);		
+		var o_x = 50;
+		var o_y = 50;
+		for(var i=0;i<=max;i++){
+			c.fillRect(0, canvas.height-i*h_step-1-o_y, canvas.width, 1);
+		}		
+		for(var i=0;i<4;i++){
+			c.fillStyle="RGB(0,0,255)";
+			c.fillRect(i*w_step, canvas.height-1 -tab1[i]*h_step -o_y, w_step/4, tab1[i]*h_step );
+			c.fillText(tab1[i] , i*w_step+5, canvas.height-20);
+			
+			c.fillStyle="RGB(255,0,0)";
+			c.fillRect(i*w_step+w_step/4, canvas.height-1 -tab2[i]*h_step-o_y, w_step/4, tab2[i]*h_step  );
+			c.fillText(tab2[i] , i*w_step+w_step/4+5, canvas.height-20 );
+		}			
+}
+ </script>
+</head>
+<body>
+<form>
+firma 1= <input type="text" name="f1n" value="firma1"><BR>
+ <input type="text" name="p1_1" value="5">
+ <input type="text" name="p1_2" value="2">
+ <input type="text" name="p1_3" value="7">
+ <input type="text" name="p1_4" value="3">
+ <input type="text" name="z1_1" value="1">
+ <input type="text" name="z1_2" value="2">
+ <input type="text" name="z1_3" value="2">
+ <input type="text" name="z1_4" value="4"><BR>
+firma2= <input type="text" name="f2n" value="firma2"><BR>
+ <input type="text" name="p2_1" value="5">
+ <input type="text" name="p2_2" value="2">
+ <input type="text" name="p2_3" value="7">
+ <input type="text" name="p2_4" value="3">
+ <input type="text" name="z2_1" value="1">
+ <input type="text" name="z2_2" value="2">
+ <input type="text" name="z2_3" value="2">
+ <input type="text" name="z2_4" value="4"><BR>
+firma3= <input type="text" name="f3n" value="firma3"><BR>
+ <input type="text" name="p3_1" value="5">
+ <input type="text" name="p3_2" value="2">
+ <input type="text" name="p3_3" value="7">
+ <input type="text" name="p3_4" value="3">
+ <input type="text" name="z3_1" value="1">
+ <input type="text" name="z3_2" value="2">
+ <input type="text" name="z3_3" value="2">
+ <input type="text" name="z3_4" value="4"><BR>
+firma4= <input type="text" name="f4n" value="firma4"><BR>
+ <input type="text" name="p4_1" value="5">
+ <input type="text" name="p4_2" value="2">
+ <input type="text" name="p4_3" value="7">
+ <input type="text" name="p4_4" value="3">
+ <input type="text" name="z4_1" value="1">
+ <input type="text" name="z4_2" value="2">
+ <input type="text" name="z4_3" value="2">
+ <input type="text" name="z4_4" value="4"><BR>
+
+<input type="button" name="a" value="Rysuj"
+onclick="draw(this.form);"> <BR>
+<Table>
+<TR><TD><canvas id="image0" width="300" height="300" ></TD></TR>
+<TR><TD><canvas id="image1" width="300" height="300"></TD></TR>
+<TR><TD><canvas id="image2" width="300" height="300" ></TD></TR>
+<TR><TD><canvas id="image3" width="300" height="300"></TD></TR>
+</TABLE>
+</canvas>
+</form>
+</body>
+</html>
+
+
+
+
